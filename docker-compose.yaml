@@ -1,5 +1,13 @@
 version: "3.3"
 services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - EXTERNAL_API_BASE_URL=http://simulado:80
+    depends_on:
+      - simulado
   influxdb:
     image: influxdb:1.8.2
     ports:
@@ -17,7 +25,7 @@ services:
     volumes:
       - ./shared/grafana:/etc/grafana/provisioning/
   simulado:
-    image : ldabiralai/simulado:latest
+    image: ldabiralai/simulado:latest
     ports:
       - "3001:80"
     volumes:
@@ -31,5 +39,6 @@ services:
       - ./shared/k6:/scripts
     environment:
       - K6_OUT=influxdb=http://influxdb:8086/k6
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - APP_HOST=http://app:8080
+    depends_on:
+      - app
