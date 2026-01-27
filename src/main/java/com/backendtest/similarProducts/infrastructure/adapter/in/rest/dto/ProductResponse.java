@@ -1,18 +1,21 @@
-package com.backendtest.similarProducts.model;
+package com.backendtest.similarProducts.infrastructure.adapter.in.rest.dto;
 
 import java.math.BigDecimal;
 
-public class ProductDetail {
+/**
+ * REST API response DTO for product details.
+ */
+public class ProductResponse {
     
     private String id;
     private String name;
     private BigDecimal price;
     private Boolean availability;
 
-    public ProductDetail() {
+    public ProductResponse() {
     }
 
-    public ProductDetail(String id, String name, BigDecimal price, Boolean availability) {
+    public ProductResponse(String id, String name, BigDecimal price, Boolean availability) {
         this.id = id;
         this.name = name;
         this.price = price;

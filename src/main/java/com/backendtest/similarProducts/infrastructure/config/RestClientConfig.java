@@ -1,4 +1,4 @@
-package com.backendtest.similarProducts.config;
+package com.backendtest.similarProducts.infrastructure.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -6,6 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestClient;
 
+/**
+ * Infrastructure configuration for HTTP clients.
+ */
 @Configuration
 public class RestClientConfig {
 

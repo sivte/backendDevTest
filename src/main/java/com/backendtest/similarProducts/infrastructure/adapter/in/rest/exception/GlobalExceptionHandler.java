@@ -1,10 +1,15 @@
-package com.backendtest.similarProducts.exception;
+package com.backendtest.similarProducts.infrastructure.adapter.in.rest.exception;
 
+import com.backendtest.similarProducts.domain.exception.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+/**
+ * Global exception handler for REST controllers.
+ * Translates domain exceptions to appropriate HTTP responses.
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
